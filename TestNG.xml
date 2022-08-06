@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestNG Listener Example">
+    <listeners>
+        <listener class-name="listeners.Listener"/>
+    </listeners>
+    <parameter name="browser" value="firefox"/>
+    <test name="TechCrunch General Content Control">
+        <classes>
+            <class name="testCases.TestCase">
+            </class>
+        </classes>
+    </test>
+</suite>
