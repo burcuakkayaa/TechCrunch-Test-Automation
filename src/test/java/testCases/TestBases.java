@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import utils.Constants;
 
-@Listeners({Listener.class})
+
 public class TestBases {
 
     DriverFactory driverFactory = new DriverFactory();

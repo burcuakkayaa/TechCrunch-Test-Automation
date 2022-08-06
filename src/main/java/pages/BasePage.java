@@ -5,12 +5,13 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
+import java.util.List;
+
 
 
 public class BasePage extends PageFactory {
@@ -124,6 +125,16 @@ public class BasePage extends PageFactory {
                 .pollingEvery(Duration.ofMillis(10)).ignoring(StaleElementReferenceException.class)
                 .ignoring(NoSuchElementException.class);
         wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public void waitUntilVisibilityOfAllElements(List<WebElement> element) {
+        /**
+         * Wait Until All elements are visible.
+         */
+        Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(timeOut))
+                .pollingEvery(Duration.ofMillis(10)).ignoring(StaleElementReferenceException.class)
+                .ignoring(NoSuchElementException.class);
+        wait.until(ExpectedConditions.visibilityOfAllElements(element));
     }
 
     public Boolean waitUntilElementIsDisplayed(WebElement element) {
