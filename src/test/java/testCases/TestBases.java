@@ -1,7 +1,6 @@
 package testCases;
 
 import factory.DriverFactory;
-import listeners.Listener;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import utils.Constants;
