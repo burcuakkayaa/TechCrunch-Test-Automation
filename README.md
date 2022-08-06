@@ -1,6 +1,6 @@
 # TechCrunch-Test-Automation
 
-Java, Allure, Selenium, Testng, WebdriverManager, Log4j
+Technologies : Java, Allure, Selenium, Testng, WebdriverManager, Log4j
 
 You can see allure report on the below
 
