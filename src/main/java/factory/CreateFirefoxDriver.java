@@ -18,6 +18,7 @@ public class CreateFirefoxDriver extends DriverFactory {
     }
 
     private FirefoxOptions getFirefoxOptions() {
+        
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         ProfilesIni allProfiles = new ProfilesIni();
         FirefoxProfile myProfile = allProfiles.getProfile("default");

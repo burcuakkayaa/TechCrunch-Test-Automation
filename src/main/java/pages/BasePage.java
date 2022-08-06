@@ -5,13 +5,13 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.*;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 import java.util.List;
-
 
 
 public class BasePage extends PageFactory {
@@ -22,11 +22,11 @@ public class BasePage extends PageFactory {
     private final int timeOut = 60;
 
     public BasePage(WebDriver driver) {
+
         this.driver = driver;
         PageFactory.initElements(driver, this);
         this.jsWait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
         this.js = (JavascriptExecutor) driver;
-
 
     }
 

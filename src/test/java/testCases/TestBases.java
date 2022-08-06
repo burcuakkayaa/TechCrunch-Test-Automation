@@ -12,7 +12,6 @@ public class TestBases {
     DriverFactory driverFactory = new DriverFactory();
     protected static WebDriver driver;
 
-
     @BeforeTest(alwaysRun = true)
     @Parameters({"browser"})
     public void launchBrowser(@Optional String browserName) {

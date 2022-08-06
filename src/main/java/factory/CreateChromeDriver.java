@@ -18,6 +18,7 @@ public class CreateChromeDriver extends DriverFactory {
     }
 
     private ChromeOptions getOptions() {
+
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("-disable-cache"
                 , "--incognito"
