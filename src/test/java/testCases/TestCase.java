@@ -5,7 +5,6 @@ import io.qameta.allure.*;
 import listeners.Listener;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import pages.BasePage;
 import pages.HomePage;
 import pages.NewsDetailsPage;
 
@@ -15,11 +14,11 @@ import pages.NewsDetailsPage;
 public class TestCase extends TestBases {
 
 
-    @Test(priority = 0, description = "Homepage and News Details Page general control")
+    @Test(priority = 1, description = "Homepage and News Details Page general control")
     @Severity(SeverityLevel.CRITICAL)
     @Description("Test Description: Homepage and News Details Page general control")
     public void testCase() {
-        /**
+        /*
          * Test Case:
          * User opens the selecting website ("https://techcrunch.com")
          * User should see the latest news are present
@@ -32,7 +31,6 @@ public class TestCase extends TestBases {
          */
 
         //********PAGE INSTANTIATIONS********
-        BasePage basePage = new BasePage(driver);
         HomePage homePage = new HomePage(driver);
         NewsDetailsPage newsDetailsPage = new NewsDetailsPage(driver);
 
@@ -49,7 +47,7 @@ public class TestCase extends TestBases {
         homePage.verifyThatEachNewsHasAnImage();
 
         System.out.println("User clicks the one of the latest news");
-        homePage.clickTheLatestNews(2);
+        homePage.clickTheLatestNews(1);
 
         System.out.println("User should see the news details page");
         newsDetailsPage.verifyPageIsOpen();

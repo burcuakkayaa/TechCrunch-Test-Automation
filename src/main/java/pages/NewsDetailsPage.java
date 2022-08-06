@@ -42,14 +42,14 @@ public class NewsDetailsPage extends BasePage {
     }
 
     private String getBrowserTitle() {
-        /**
+        /*
          * Get the browser title.
          */
         return driver.getTitle();
     }
 
     private String getNewsTitle() {
-        /**
+        /*
          * Get the news title.
          */
         waitUntilVisible(articleTitle);
@@ -58,7 +58,7 @@ public class NewsDetailsPage extends BasePage {
     }
 
     private String getUrlContent() {
-        /**
+        /*
          * The method purpose that get the news content from page url.
          */
 

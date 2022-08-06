@@ -7,6 +7,8 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.ProfilesIni;
 
+import static utils.Constants.FIREFOX_OPTIONS;
+
 public class CreateFirefoxDriver extends DriverFactory {
 
     public ThreadLocal<WebDriver> createFirefoxDriver() {
@@ -18,13 +20,12 @@ public class CreateFirefoxDriver extends DriverFactory {
     }
 
     private FirefoxOptions getFirefoxOptions() {
-        
+
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         ProfilesIni allProfiles = new ProfilesIni();
         FirefoxProfile myProfile = allProfiles.getProfile("default");
         firefoxOptions.setProfile(myProfile);
-        firefoxOptions.addArguments("--ignore-certificate-errors", "--ignore-ssl-errors"
-                , "--disable-notifications", "--disable-infobars", "--incognito");
+        firefoxOptions.addArguments(FIREFOX_OPTIONS);
         myProfile.setAcceptUntrustedCertificates(true);
         myProfile.setAssumeUntrustedCertificateIssuer(false);
 

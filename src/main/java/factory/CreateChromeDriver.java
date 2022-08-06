@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import static utils.Constants.CHROME_OPTIONS;
+
 public class CreateChromeDriver extends DriverFactory {
 
 
@@ -19,21 +21,7 @@ public class CreateChromeDriver extends DriverFactory {
     private ChromeOptions getOptions() {
 
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("-disable-cache"
-                , "--incognito"
-                , "start-maximized"
-                , "--no-sandbox"
-                , "--disable-gpu"
-                , "--disable-dev-shm-usage"
-                , "--disable-infobars"
-                , "--disable-notifications"
-                , "--enable-automation"
-                , "--ignore-certificate-errors"
-                , "--ignore-ssl-errors"
-                , "--disable-cache");
-
-        chromeOptions.setExperimentalOption("useAutomationExtension", false);
-
+        chromeOptions.addArguments(CHROME_OPTIONS);
         return chromeOptions;
     }
 }

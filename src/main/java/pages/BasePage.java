@@ -31,7 +31,7 @@ public class BasePage extends PageFactory {
     }
 
     public boolean isElementPresent(WebElement element) {
-        /**
+        /*
          * Verify that element is present or not.
          */
         try {
@@ -45,7 +45,7 @@ public class BasePage extends PageFactory {
     }
 
     public void forceClick(WebElement element) {
-        /**
+        /*
          * Click the element with js executor
          */
 
@@ -61,7 +61,7 @@ public class BasePage extends PageFactory {
     }
 
     public void actionClick(WebElement element) {
-        /**
+        /*
          * Click the element with action.
          */
 
@@ -70,7 +70,7 @@ public class BasePage extends PageFactory {
     }
 
     public void findAndScrollElement(WebElement element, int scrollAmount) {
-        /**
+        /*
          * Scroll to the element.
          * param : scrollAmount :  How much the user want scrolling to the element.
          */
@@ -83,7 +83,7 @@ public class BasePage extends PageFactory {
     }
 
     public void waitUntilClickableAndClick(WebElement element) {
-        /**
+        /*
          * Wait element is clickable and click.
          */
 
@@ -98,7 +98,7 @@ public class BasePage extends PageFactory {
     }
 
     public synchronized boolean waitUntilUrlContains(String expectedValue) {
-        /**
+        /*
          * Verify that expected url is on.
          */
 
@@ -118,7 +118,7 @@ public class BasePage extends PageFactory {
 
 
     public void waitUntilVisible(WebElement element) {
-        /**
+        /*
          * Wait element is visible.
          */
         Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(timeOut))
@@ -128,7 +128,7 @@ public class BasePage extends PageFactory {
     }
 
     public void waitUntilVisibilityOfAllElements(List<WebElement> element) {
-        /**
+        /*
          * Wait Until All elements are visible.
          */
         Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(timeOut))
@@ -138,7 +138,7 @@ public class BasePage extends PageFactory {
     }
 
     public Boolean waitUntilElementIsDisplayed(WebElement element) {
-        /**
+        /*
          * Wait element is displayed.
          */
 
@@ -151,14 +151,13 @@ public class BasePage extends PageFactory {
     public void waitForLoad() {
 
         try {
-            ExpectedCondition<Boolean> pageLoadCondition = new ExpectedCondition<Boolean>() {
-                @Override
-                public Boolean apply(WebDriver driver) {
-                    return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
-                }
+            ExpectedCondition<Boolean> pageLoadCondition = driver -> {
+                assert driver != null;
+                return ((JavascriptExecutor) driver)
+                        .executeScript("return document.readyState").equals("complete");
             };
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
-            wait.until(pageLoadCondition);
+
+            jsWait.until(pageLoadCondition);
         } catch (Exception e) {
             takeScreenshot();
         }
@@ -166,7 +165,7 @@ public class BasePage extends PageFactory {
     }
 
     public void moveToActiveElement() {
-        /**
+        /*
          * Move to active element on the page.
          */
         driver.switchTo().activeElement();
@@ -210,15 +209,15 @@ public class BasePage extends PageFactory {
 
 
     private String getCurrentTime() {
-        /**
+        /*
          * The method returns current time
          */
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
-        return simpleDateFormat.format(new Date()).toString();
+        return simpleDateFormat.format(new Date());
     }
 
     private void takeScreenshot() {
-        /**
+        /*
          * Take a screenshot method and save to the screenshot folder
          * param: methodName : give the method name
          */

@@ -14,7 +14,7 @@ public class TestBases {
     @BeforeTest(alwaysRun = true)
     @Parameters({"browser"})
     public void launchBrowser(@Optional String browserName) {
-        /**
+        /*
          * Create a driver by selecting the browser.
          */
         if (browserName == null)
@@ -29,7 +29,7 @@ public class TestBases {
     @AfterTest(alwaysRun = true)
     public void closeBrowser() {
 
-        /**
+        /*
          * Close the browser at the end of the test.
          */
         driver.quit();
