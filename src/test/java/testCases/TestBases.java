@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import utils.Constants;
 
+import java.net.MalformedURLException;
+
 
 public class TestBases {
 
@@ -13,12 +15,12 @@ public class TestBases {
 
     @BeforeTest(alwaysRun = true)
     @Parameters({"browser"})
-    public void launchBrowser(@Optional String browserName) {
+    public void launchBrowser(@Optional String browserName) throws MalformedURLException {
         /*
          * Create a driver by selecting the browser.
          */
         if (browserName == null)
-            browserName = "chrome";
+            browserName = "grid";
 
         driver = driverFactory.getDriverManager(browserName);
         driver.get(Constants.BASE_URL);
